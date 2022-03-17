@@ -1,0 +1,9 @@
+﻿<Application x:Class="FitnessAssistant_Simonov_2ISP11_16.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FitnessAssistant_Simonov_2ISP11_16"
+             StartupUri="Windows/MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessAssistant_Simonov_2ISP11-16", "FitnessAssistant_Simonov_2ISP11-16\FitnessAssistant_Simonov_2ISP11-16.csproj", "{37A1A515-7060-4CEC-83A7-CD25550C420C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessAssistentTests", "FitnessAssistentTests\FitnessAssistentTests.csproj", "{77D4FD68-166D-4A69-9D14-8E67E138F355}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37A1A515-7060-4CEC-83A7-CD25550C420C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A1A515-7060-4CEC-83A7-CD25550C420C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A1A515-7060-4CEC-83A7-CD25550C420C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A1A515-7060-4CEC-83A7-CD25550C420C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77D4FD68-166D-4A69-9D14-8E67E138F355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D4FD68-166D-4A69-9D14-8E67E138F355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D4FD68-166D-4A69-9D14-8E67E138F355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77D4FD68-166D-4A69-9D14-8E67E138F355}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {885C8D53-05AB-4FF1-8FDF-17E9D74D2F41}
+	EndGlobalSection
+EndGlobal
