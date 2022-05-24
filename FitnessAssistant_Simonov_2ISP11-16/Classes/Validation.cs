@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FitnessAssistant_Simonov_2ISP11_16.Classes;
+using FitnessAssistant_Simonov_2ISP11_16.EF;
 
 namespace FitnessAssistant_Simonov_2ISP11_16.Classes
 {
@@ -54,11 +55,12 @@ namespace FitnessAssistant_Simonov_2ISP11_16.Classes
         public static bool ValidationHeight(string Height)
         {
             char[] str2 = Height.Where(i => Char.IsDigit(i)).ToArray();
-            if (str2.Length != 0 && Int32.Parse(Height) > 0 && Int32.Parse(Height) <= 300)
+            if (str2.Length != 0 &&  Int32.Parse(Height) > 0 && Int32.Parse(Height) <= 300)
                 return true;
-
+            
             else
                 return false;
+
            
         }
 
@@ -80,20 +82,24 @@ namespace FitnessAssistant_Simonov_2ISP11_16.Classes
             if (Birthday.Date < DateTime.Now.Date)
                 return true;
             else
-                return true;
+                return false;
         }
 
-        //public static bool ValidationLogin(string str)
-        //{
-        //    Entites context = new Entites();
-
-
-
-        //    return true;
-
-        //}
-
-
+        public static bool ValidationLogin(string Logins)
+        {
+            EF.FitnessAssistant fitnessAssistant = new EF.FitnessAssistant();
+            
+            var user = fitnessAssistant.User.Where(i => i.Login == Logins).Select(j => j.Login).FirstOrDefault();
+            if (user == Logins)
+            {
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Logins))
+            {
+                return false;
+            }
+            return true;
+        }
 
     }
 }

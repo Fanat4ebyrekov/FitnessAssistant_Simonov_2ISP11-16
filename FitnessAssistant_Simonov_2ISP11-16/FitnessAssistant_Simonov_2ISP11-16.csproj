@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Calculation.cs" />
     <Compile Include="Classes\Entites.cs" />
     <Compile Include="Classes\Validation.cs" />
     <Compile Include="EF\BaseDate.Context.cs">

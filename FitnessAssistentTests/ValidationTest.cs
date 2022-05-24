@@ -1,5 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using FitnessAssistant_Simonov_2ISP11_16.EF;
+using static FitnessAssistant_Simonov_2ISP11_16.Classes.Validation;
+
 
 namespace FitnessAssistentTests
 {
@@ -157,7 +160,7 @@ namespace FitnessAssistentTests
         public void ValidationBirthday_CorrectBirthday_ReturnTrua()
         {
             // Arange - вх. параметр
-            DateTime str = new DateTime(2032-2-25);
+            DateTime str = new DateTime(2002-2-25);
             bool ex = true;
             // Act - вызов метода тестируемого 
             bool act = FitnessAssistant_Simonov_2ISP11_16.Classes.Validation.ValidationBirthday(str);
@@ -166,17 +169,16 @@ namespace FitnessAssistentTests
         }
 
         [TestMethod]
-        public void ValidationBirthday_CorrectBirthday_ReturnFalse()
+        public void ValidationBirthday_UnCorrectBirthday_ReturnFalse()
         {
             // Arange - вх. параметр
-            DateTime str = new DateTime(25-01-2032);
+            DateTime str = DateTime.Now;
             bool ex = false;
             // Act - вызов метода тестируемого 
             bool act = FitnessAssistant_Simonov_2ISP11_16.Classes.Validation.ValidationBirthday(str);
             // Assert - сравнение 
             Assert.AreEqual(ex, act);
         }
-
 
         [TestMethod]
         public void ValidationWeight_IsSpaced_ReturnFalse()
@@ -297,6 +299,42 @@ namespace FitnessAssistentTests
             //Assert
             Assert.AreEqual(ex, act);
         }
+
+        [TestMethod]
+        public void ValidationLogin_LoginRepeat_returnFalse()
+        {
+            //Arrange
+            string login = "KrytoiNikita";
+            bool ex = false;
+            //Act
+            bool act = FitnessAssistant_Simonov_2ISP11_16.Classes.Validation.ValidationLogin(login);
+            //Assert
+            Assert.AreEqual(ex, act);
+        }
+
+        [TestMethod]
+        public void ValidationLogin_LoginCorrect_returnTrue()
+        {
+            //Arrange
+            string login = "9";
+            bool ex = true;
+            //Act
+            bool act = FitnessAssistant_Simonov_2ISP11_16.Classes.Validation.ValidationLogin(login);
+            //Assert
+            Assert.AreEqual(ex, act);
+        }
+
+        //[TestMethod]
+        //public void ValidationCalculate_Value0_returnFalse()
+        //{
+        //    //Arrange
+        //    double login = "0";
+        //    bool ex = false;
+        //    //Act
+        //    bool act = FitnessAssistant_Simonov_2ISP11_16.Classes.Calculation.BMI(login);
+        //    //Assert
+        //    Assert.AreEqual(ex, act);
+        //}
 
     }
 }
