@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:FitnessAssistant_Simonov_2ISP11_16.Windows"
         mc:Ignorable="d"
         WindowStyle="None"
-       WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
-        Title="ResultWindow" Height="600" Width="750">
+        Title="ResultWindow" Height="600" Width="750"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

@@ -60,10 +60,10 @@ namespace FitnessAssistentTests
         }
 
         [TestMethod]
-        public void ValidationPassword_SmallLatter_returnfalse()
+        public void ValidationPassword_NonToApper_returnfalse()
         {
             // Arange - вх. параметр
-            string password = "aaaaaaaa";
+            string password = "aaaaaa1@";
             bool ex = false;
             // Act - вызов метода тестируемого 
             bool act = FitnessAssistant_Simonov_2ISP11_16.Classes.Validation.ValidationPassword(password);
@@ -72,10 +72,10 @@ namespace FitnessAssistentTests
         }
 
         [TestMethod]
-        public void ValidationPassword_BigLatter_returnfalse()
+        public void ValidationPassword_NonToSmaller_returnfalse()
         {
             // Arange - вх. параметр
-            string password = "AAAAAAAA";
+            string password = "AAAAAA1@";
             bool ex = false;
             // Act - вызов метода тестируемого 
             bool act = FitnessAssistant_Simonov_2ISP11_16.Classes.Validation.ValidationPassword(password);
@@ -84,10 +84,10 @@ namespace FitnessAssistentTests
         }
 
         [TestMethod]
-        public void ValidationPassword_SpecSymbols_returnfalse()
+        public void ValidationPassword_NonSpecSymbols_returnfalse()
         {
             // Arange - вх. параметр
-            string password = "aa1aaaaa";
+            string password = "Aa1aaaaa";
             bool ex = false;
             // Act - вызов метода тестируемого 
             bool act = FitnessAssistant_Simonov_2ISP11_16.Classes.Validation.ValidationPassword(password);
@@ -131,6 +131,7 @@ namespace FitnessAssistentTests
             // Assert - сравнение 
             Assert.AreEqual(ex, act);
         }
+
 
         [TestMethod]
         public void ValidationFNameLName_CorrectFName_ReturnTrua()
@@ -324,17 +325,94 @@ namespace FitnessAssistentTests
             Assert.AreEqual(ex, act);
         }
 
-        //[TestMethod]
-        //public void ValidationCalculate_Value0_returnFalse()
-        //{
-        //    //Arrange
-        //    double login = "0";
-        //    bool ex = false;
-        //    //Act
-        //    bool act = FitnessAssistant_Simonov_2ISP11_16.Classes.Calculation.BMI(login);
-        //    //Assert
-        //    Assert.AreEqual(ex, act);
-        //}
+        [TestMethod]
+        public void ValidationBMI_Error_returnFalse()
+        {
+            //Arrange
+            double height = 0;
+            double weight = 0;
+            var ex = "Ошибка";
+            //Act
+            var act = FitnessAssistant_Simonov_2ISP11_16.Classes.Calculation.BMI(height,weight);
+            //Assert
+            Assert.AreEqual(ex, act);
+        }
+        
+        [TestMethod]
+        public void ValidationBMI_Deficit_returnFalse()
+        {
+             
+            //Arrange
+            double height = 1.70;
+            double weight = 50;
+            var ex = "Выражение дефицит массы тела";
+            //Act
+            var act = FitnessAssistant_Simonov_2ISP11_16.Classes.Calculation.BMI(height, weight);
+            //Assert
+            Assert.AreEqual(ex, act);
+        }
+
+        [TestMethod]
+        public void ValidationBMI_NormVes_returnTrue()
+        {
+
+            //Arrange
+            double height = 1.90;
+            double weight = 70.5;
+            var ex = "Нормальная масса тела";
+            //Act
+            var act = FitnessAssistant_Simonov_2ISP11_16.Classes.Calculation.BMI(weight, height);
+            //Assert
+            Assert.AreEqual(ex, act);
+        }
+
+        [TestMethod]
+        public void ValidationBMR_SexMan_returnTrue()
+        {
+
+            //Arrange
+            string g = "Mуж";
+            int age = 35;
+            double weight = 80;
+            double height = 1.80;
+            var ex = "672,24";
+            //Act
+            var act = FitnessAssistant_Simonov_2ISP11_16.Classes.Calculation.BMR(age, weight, height, g);
+            //Assert
+            Assert.AreEqual(ex, act);
+        }
+
+        [TestMethod]
+        public void ValidationBMR_SexWoman_returnTrue()
+        {
+
+            //Arrange
+            string g = "Жен";
+            int age = 17;
+            double weight = 60;
+            double height = 1.60;
+            var ex = "564,48";
+            //Act
+            var act = FitnessAssistant_Simonov_2ISP11_16.Classes.Calculation.BMR(age, weight, height, g);
+            //Assert
+            Assert.AreEqual(ex, act);
+        }
+
+        [TestMethod]
+        public void ValidationBMR_ZeroWeightBMR_returnFalse()
+        {
+
+            //Arrange
+            string g = "Жен";
+            int age = 17;
+            double weight = 0;
+            double height = 1.60;
+            var ex = "Ошибка";
+            //Act
+            var act = FitnessAssistant_Simonov_2ISP11_16.Classes.Calculation.BMR(age, weight, height, g);
+            //Assert
+            Assert.AreEqual(ex, act);
+        }
 
     }
 }

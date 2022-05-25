@@ -11,58 +11,75 @@ namespace FitnessAssistant_Simonov_2ISP11_16.Classes
 
         public static string BMI(double weight, double height)
         {
-            double n = weight / (Math.Pow((height / 100), 2));
+           
+            double n = weight / (height * height);
+
+            
             if (n <= 16)
             {
-                return Math.Round(n).ToString() + "Выражение дефицит массы тела";
+                return "Выражение дефицит массы тела";
             }
             else if (n > 16 && n <= 18.5)
             {
-                return Math.Round(n).ToString() + "Выражение дефицит массы тела";
+                return "Недостаточная масса тела";
             }
             else if (n > 18.5 && n <= 25)
             {
-                return Math.Round(n).ToString() + "Выражение дефицит массы тела";
+                return "Нормальная масса тела";
             }
             else if (n > 25 && n <= 30)
             {
-                return Math.Round(n).ToString() + "Выражение дефицит массы тела";
+                return "Избыточная масса тела";
             }
             else if (n > 30 && n <= 35)
             {
-                return Math.Round(n).ToString() + "Выражение дефицит массы тела";
+                return "Ожирение I степени";
             }
             else if (n > 35 && n <= 40)
             {
-                return Math.Round(n).ToString() + "Выражение дефицит массы тела";
+                return "Ожирение II степени";
             }
             else if (n > 40)
             {
-                return Math.Round(n).ToString() + "Выражение дефицит массы тела";
+                return "Ожирение III степени";
             }
             else
             {
-                return "Ошибка!";
+                return "Ошибка";
             }
 
         }
 
-        public static double BMR(bool gender)
+        public static string BMR(int age, double w, double h, string g)
         {
-            double w = 0;
-            double h = 0;
-            double g = 0;
             double n = 0;
 
-            if (gender)
+
+            try
             {
-                n = 66.5 + (13.7 * w) + (5 * h) - (6.9 * g); 
+                if ((age != 0) && (w != 0) && (h != 0))
+                {
+                    if (g == "Муж")
+                    {
+                        n = 66.5 + (13.7 * w) + (5 * h) - (6.9 * age);
+                    }
+                    else
+                    {
+                        n = 65.5 + (9.6 * w) + (1.8 * h) - (4.7 * age);
+                    }
+
+                    return Convert.ToString(n);
+                }
+                else
+                {
+                    return "Ошибка";
+                }
+
             }
-            else
+            catch
             {
-                n = 655 + (9.6 * w) + (1.8 * h) - (4.7 * g);
+                return "Ошибка";
             }
-            return n;
         }
     }
 }
